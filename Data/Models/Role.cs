@@ -7,7 +7,7 @@ namespace CoreWebApp.Models
 {
     public enum Role
     {
-        Admin
+        Admin,
     }
 
     public static class RoleExtensions

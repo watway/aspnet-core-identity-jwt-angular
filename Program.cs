@@ -23,18 +23,17 @@ namespace CoreWebApp
             using (var scope = host.Services.CreateScope())
             {
                 var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
-                var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+                var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole<int>>>();
 
-                // TODO: Add seed
+                // TODO: Seed the database
 
                 // Seed the Roles
                 var roles = (Role[])Enum.GetValues(typeof(Role));
                 foreach(var r in roles)
                 {
                     // create an identity role object out of the enum value
-                    var identityRole = new IdentityRole
+                    var identityRole = new IdentityRole<int>
                     {
-                        Id = r.GetRoleName(),
                         Name = r.GetRoleName()
                     };
 
